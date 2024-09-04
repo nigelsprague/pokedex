@@ -41,16 +41,19 @@
   <!-- SECTION -->
   <main class="container-fluid">
     <div class="d-flex justify-content-between mt-2">
-      <div id="pokedex" class="col-3">
-        <button class="w-100 mb-2"><span class="mdi mdi-pokeball"></span> pokemon guy</button>
+      <div class="col-3">
+        <h4 class="text-center">Pokedex</h4>
+        <div id="pokedex">
+
+        </div>
       </div>
       <div id="active" class="col-6 px-2">
-        <div class="card d-flex mb-2">
+        <div class="card d-flex mb-2 sticky-top">
           <div class="card-header d-flex justify-content-between">
             <h2>Pokemon Name</h2>
             <h2>No.1</h2>
           </div>
-          <div class="card-img d-flex justify-content-evenly">
+          <div class="card-img d-flex justify-content-evenly pt-3">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
               alt="ditto front">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png"
@@ -92,8 +95,11 @@
           </div>
         </div>
       </div>
-      <div id="myPokemon" class="col-3">
-        <button class="w-100 mb-2"><span class="mdi mdi-pokeball"></span> my pokemon</button>
+      <div class="col-3">
+        <h4 class="text-center">My Pokemon</h4>
+        <div id="myPokemon">
+          <button class="w-100 mb-2"><span class="mdi mdi-pokeball"></span> my pokemon</button>
+        </div>
       </div>
     </div>
   </main>
