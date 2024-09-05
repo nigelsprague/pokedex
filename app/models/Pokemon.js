@@ -1,15 +1,16 @@
 export class Pokemon {
   constructor(data) {
     this.name = data.name
+    this.id = data.id
     this.nickName = data.nickName
-    this.img = data.img || this.name.sprites
-    this.backImg = data.backImg || this.name.sprites
+    this.img = data.img || this.sprites.front_default
+    this.backImg = data.backImg || this.sprites.back_default
     this.weight = data.weight
     this.height = data.height
-    this.health = data.health
-    this.defense = data.defense
-    this.attack = data.attack
-    this.speed = data.speed
+    this.health = data.stats[0].base_stat
+    this.defense = data.stats[2].base_stat
+    this.attack = data.stats[1].base_stat
+    this.speed = data.stats[5].base_stat
     this.types = data.types
     this.creatorId = data.creatorId
   }
@@ -18,43 +19,43 @@ export class Pokemon {
     return `
     <div class="card d-flex mb-2 sticky-top">
           <div class="card-header d-flex justify-content-between">
-            <h2>Pokemon Name</h2>
-            <h2>No.1</h2>
+            <h2>${this.name}</h2>
+            <h2>No${this.id}</h2>
           </div>
           <div class="card-img d-flex justify-content-evenly pt-3">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-              alt="ditto front">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png"
-              alt="ditto back">
+            <img src="${this.img}"
+              alt="${this.name} front">
+            <img src="${this.backImg}"
+              alt="${this.name} back">
           </div>
           <div class="card card-body m-3 pb-0">
             <section class="row">
               <div class="col-3 rounded-pill bg-info text-light text-center mb-2">
-                type
+                ${this.types}
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Health:</p>
-                <p># hp</p>
+                <p>${this.health} hp</p>
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Attack:</p>
-                <p># ap</p>
+                <p>${this.attack} ap</p>
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Defense:</p>
-                <p> # dp</p>
+                <p>${this.defense} dp</p>
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Speed:</p>
-                <p># spd</p>
+                <p>${this.speed} spd</p>
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Weight:</p>
-                <p># hg</p>
+                <p>${this.weight} hg</p>
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <p>Height:</p>
-                <p># dm</p>
+                <p>${this.height} dm</p>
               </div>
             </section>
           </div>
