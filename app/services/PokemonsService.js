@@ -1,5 +1,7 @@
 import { AppState } from "../AppState.js"
+import { Pokemon } from "../models/Pokemon.js"
 import { pokeApi } from "./AxiosService.js"
+Pokemon
 
 class PokemonsService {
   async getPokemon() {
@@ -11,6 +13,8 @@ class PokemonsService {
   async getPokemonByName(pokeName) {
     const response = await pokeApi.get(`pokemon/${pokeName}`)
     console.log(pokeName, response.data)
+    const newPokemon = new Pokemon(response.data)
+    AppState.activePokemon = newPokemon
   }
 }
 

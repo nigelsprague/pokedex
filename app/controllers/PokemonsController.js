@@ -6,6 +6,7 @@ import { setHTML } from "../utils/Writer.js"
 export class PokemonsController {
   constructor() {
     AppState.on('pokemon', this.drawPokedex)
+    AppState.on('activePokemon', this.drawActivePokemon)
 
     this.getPokemon()
   }
@@ -36,5 +37,9 @@ export class PokemonsController {
       console.error(error);
 
     }
+  }
+
+  drawActivePokemon() {
+    setHTML('active', AppState.activePokemon.activePokemonTemplate)
   }
 }
